@@ -90,7 +90,7 @@ Initial research into this involved using NSSM as a service, but I didn't want t
    - The purpose of this script is to communicate with the dedicated server API, trigger a save followed by restarting the server session.
 _If you plan using some of my other utilities then I recommend keeping the GitHub folder structure intact._
 
-#### 2-2. Enable HTTPS API.
+#### 2-2. Step 2: Enable HTTPS API.
 
 Satisfactory’s dedicated server exposes a secure API that can:
 * Trigger saves
@@ -107,7 +107,7 @@ bEnableWebServer=True
 ```
 3. Restart the server session to apply changes.
 
-#### 2-3. Setup Task Scheduler.
+#### 2-3. Step 3: Setup Task Scheduler.
 
 1. Press Windows + R to open up your Run Command...
 2. Type taskschd.msc and hit the Enter key.
