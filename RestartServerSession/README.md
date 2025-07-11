@@ -1,7 +1,6 @@
-### RestartServerSession
+# RestartServerSession [Back to Home](../README.md#satisfactory-dedicated-server-utilities)
 
-
-#### What this script does?
+## What this script does?
 
 1. Ability to set more than one dedicated server restart in a day.
 2. Ability to trigger a save through the API.
@@ -13,12 +12,12 @@ The only reason I decided to give my dedicated server a power up was because eve
 
 Initial research into this involved using NSSM as a service, but I didn't want to go this route.
 
-#### Table of Contents
+## Table of Contents
 * [Step 1: Get RestartServer GitHub files.](#step-1-get-restartserver-github-files)
 * [Step 2: Enable HTTPS API.](#step-2-enable-https-api).
 * [Step 3: Setup Task Scheduler.](#step-3-setup-task-scheduler)
 
-#### Step 1: Get RestartServer GitHub files.
+### Step 1: Get RestartServer GitHub files.
 
 1. Download RestartServer.bat.
    - Technically you can run SteamCMD anonymously, but I chose to use my Stean user credentials.
@@ -26,7 +25,7 @@ Initial research into this involved using NSSM as a service, but I didn't want t
    - The purpose of this script is to communicate with the dedicated server API, trigger a save followed by restarting the server session.
 _If you plan using some of my other utilities then I recommend keeping the GitHub folder structure intact._
 
-#### Step 2: Enable HTTPS API.
+### Step 2: Enable HTTPS API.
 
 Satisfactory’s dedicated server exposes a secure API that can:
 * Trigger saves
@@ -43,7 +42,7 @@ bEnableWebServer=True
 ```
 3. Restart the server session to apply changes.
 
-#### Step 3: Setup Task Scheduler.
+### Step 3: Setup Task Scheduler.
 
 1. Press Windows + R to open up your Run Command...
 2. Type taskschd.msc and hit the Enter key.
