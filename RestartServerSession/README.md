@@ -1,4 +1,4 @@
-### RestartServer
+### RestartServerSession
 
 
 #### What this script does?
