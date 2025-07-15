@@ -44,41 +44,63 @@ bEnableWebServer=True
 
 ### Step 3: Setup Task Scheduler.
 
+In this step we will add two tasks to the Windows Task Scheduler.
+
 1. Press Windows + R to open up your Run Command...
 2. Type taskschd.msc and hit the Enter key.
-3. Right-click in the blank space of the list of tasks and Create a Basic Task.
-4. Give your task a name such as Restart Factory Server.
-5. Under the General tab enable Run whether user is logged in or not.
-6. I also choose Windows 10 for what it is configured to run under.
-7. For the Triggers tab I created four triggers.
+
+#### Start Satisfactory Dedicated Server
+
+1. Right-click in the blank space of the list of tasks and Create a Basic Task.
+2. Give your task a name such as Start Factory Server.
+3. Under the General tab enable Run whether user is logged in or not.
+4. I also choose Windows 10 for what it is configured to run under.
+5. For the Triggers tab I created four triggers.
    1. Startup.
       1. Set Begin the task to run At Startup.
       2. Delay task for 3 minutes.
       3. Enabled.
-   2. On a Schedule.
-      1. Daily at 6 AM.
-      2. Recur every 1 days.
-      3. Enabled.
-   3. On a Schedule.
-      1. Daily at 12 PM.
-      2. Recur every 1 days.
-      3. Enabled.
-   4. On a Schedule.
-      1. Daily at 6 PM.
-      2. Recur every 1 days.
-      3. Enabled.
-   5. We don't need a task to run as 12 AM since the dedicated server by default restarts daily at this time.
-8. Under the Actions tab create a new action.
+6. Under the Actions tab create a new action.
    1. Set it to Start a program.
-   2. For the program just type powershell.exe.
-   3. For arguments type
-      - `-ExecutionPolicy Bypass -File "C:\Development\Satisfactory\Utilities\DownloadSaveGame\SaveGame.ps1"`
-      - Remember to change the path to the location of the PowerShell script we created earlier.
-9. Under the Settings tab;
+   2. For the program browse to RestartServer.bat.
+7. Under the Settings tab;
     1. Enable Allow task to be run on demand.
     2. Stop the task if it runs longer than 4 hours.
     3. Enable If the running task does not end when requested, force it to stop.
-10. Save the new task that we just created.
-11. Optionally you could right-click on the task and try running it on demand to ensure that everything is functioning as expected.
+8. Save the new task that we just created.
+9. Right-click and Run this task to start the Factory Server.
+
+#### Restart Satisfactory Dedicated Server
+
+1. Right-click in the blank space of the list of tasks and Create a Basic Task.
+2. Give your task a name such as Restart Factory Server.
+3. Under the General tab enable Run whether user is logged in or not.
+4. I also choose Windows 10 for what it is configured to run under.
+5. For the Triggers tab I created four triggers.
+   1. On a Schedule.
+      1. Daily at 6 AM.
+      2. Recur every 1 days.
+      3. Enabled.
+   2. On a Schedule.
+      1. Daily at 12 PM.
+      2. Recur every 1 days.
+      3. Enabled.
+   3. On a Schedule.
+      1. Daily at 6 PM.
+      2. Recur every 1 days.
+      3. Enabled.
+   4. We don't need a task to run as 12 AM since the dedicated server by default restarts daily at this time.
+6. Under the Actions tab create a new action.
+   1. Set it to Start a program.
+   2. For the program just type powershell.exe.
+   3. For arguments type
+      - `-ExecutionPolicy Bypass -File "C:\PATH\TO\Satisfactory\Utilities\DownloadSaveGame\SaveGame.ps1"`
+      - Remember to change the path to the location of the PowerShell script we created earlier.
+7. Under the Settings tab;
+    1. Enable Allow task to be run on demand.
+    2. Stop the task if it runs longer than 4 hours.
+    3. Enable If the running task does not end when requested, force it to stop.
+8. Save the new task that we just created.
+9. Right-click and Run this task to trigger Factory Server to perform a save followed by restarting the server session.
 
 That's it! You now have a dedicated server that saves and restarts its session every 6 hours. You can modify the instructions to run less or more frequently as desired.
